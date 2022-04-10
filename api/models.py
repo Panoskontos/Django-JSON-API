@@ -10,3 +10,13 @@ class Product(models.Model):
 
     def __str__(self):
         return(self.name)
+
+
+class Review(models.Model):
+    name = models.CharField(max_length=100, blank=False)
+    text = models.TextField(blank=True, null=True)
+    product = models.ForeignKey(
+        Product, blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return(self.name)
